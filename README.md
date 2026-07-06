@@ -35,4 +35,24 @@ Software FJ es una aplicación desarrollada en Python utilizando Programación O
 - Encapsulación
 
 ## Estructura del proyecto
-
+Software_FJ/
+│
+├── main.py
+├── README.md
+├── logs.txt
+│
+├── modelos/
+│ ├── cliente.py
+│ ├── servicio.py
+│ ├── reserva.py
+│ ├── sistema.py
+│ ├── excepciones.py
+│ ├── reserva_sala.py
+│ ├── alquiler_equipo.py
+│ └── asesoria.py
+│
+├── interfaz/
+│ └── ventana.py
+│
+└── utils/
+└── logger.py
