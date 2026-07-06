@@ -1,5 +1,5 @@
 from modelos.servicio import Servicio
-
+# Servicio especializado para la reserva de salas.
 
 class ReservaSala(Servicio):
 

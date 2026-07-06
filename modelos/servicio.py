@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
-
+# Clase abstracta que define el comportamiento común
+# para todos los servicios ofrecidos por Software FJ.
 
 class Servicio(ABC):
 

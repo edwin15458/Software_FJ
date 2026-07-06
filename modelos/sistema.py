@@ -5,7 +5,7 @@ Clase principal del sistema Software FJ.
 from modelos.excepciones import ClienteError, ServicioError, ReservaError
 
 
-class Sistema:
+class Sistema:# Clase que representa el sistema Software FJ, gestionando clientes, servicios y reservas.
 
     def __init__(self):
         self.clientes = []

@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import ttk, messagebox
-
-from modelos.cliente import Cliente
+# Importa las clases necesarias para la interfaz gráfica y los modelos del sistema.
+from modelos.cliente import Cliente 
 from modelos.reserva import Reserva
 from modelos.reserva_sala import ReservaSala
 from modelos.alquiler_equipo import AlquilerEquipo
@@ -10,11 +10,11 @@ from modelos.sistema import Sistema
 from utils.logger import registrar_log
 
 
-class Ventana:
+class Ventana:# Clase que representa la interfaz gráfica del sistema Software FJ.
 
     def __init__(self):
 
-        self.sistema = Sistema()
+        self.sistema = Sistema()# Instancia del sistema que maneja clientes, servicios y reservas.
 
         self.ventana = tk.Tk()
         self.ventana.title("Software FJ")
@@ -72,7 +72,8 @@ class Ventana:
         self.ventana.mainloop()
 
     def registrar(self):
-
+# Obtiene los datos ingresados por el usuario
+# y registra una nueva reserva.
         try:
 
             cliente = Cliente(
@@ -113,7 +114,7 @@ class Ventana:
             
             
 
-            self.lista.insert(
+            self.lista.insert(# Muestra la reserva en la lista de la interfaz.
                 tk.END,
                 f"{cliente} | {servicio.nombre} | {reserva.estado}"
             )
@@ -141,7 +142,8 @@ class Ventana:
           registrar_log("Fin del proceso de registro.")
 
     def simular_pruebas(self):
-        
+        # Ejecuta operaciones válidas e inválidas
+# para demostrar el manejo de excepciones.
         self.lista.delete(0, tk.END)
 
         pruebas = [
@@ -180,7 +182,7 @@ class Ventana:
 
         ]
 
-        for i, prueba in enumerate(pruebas, start=1):
+        for i, prueba in enumerate(pruebas, start=1):# Ejecuta cada prueba y maneja excepciones.
 
             try:
 
@@ -202,7 +204,7 @@ class Ventana:
                     f"Prueba {i}: Error -> {e}"
                 )
 
-        messagebox.showinfo(
+        messagebox.showinfo(#  Muestra un mensaje indicando que todas las pruebas se ejecutaron.
             "Pruebas",
             "Las 10 operaciones se ejecutaron."
         )
