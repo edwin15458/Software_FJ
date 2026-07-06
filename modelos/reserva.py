@@ -3,6 +3,7 @@ Clase Reserva del sistema Software FJ.
 """
 
 from modelos.excepciones import ReservaError
+from utils.logger import registrar_log
 
 
 class Reserva:
@@ -19,15 +20,25 @@ class Reserva:
 
     def confirmar(self):
         self.estado = "Confirmada"
+        registrar_log("Reserva confirmada.")
 
     def cancelar(self):
         self.estado = "Cancelada"
+        registrar_log("Reserva cancelada.")
 
     def procesar(self):
-        if self.estado == "Cancelada":
-            raise ReservaError("No se puede procesar una reserva cancelada.")
+        try:
+            costo = self.servicio.calcular_costo()
 
-        return self.servicio.calcular_costo()
+        except Exception as e:
+            raise ReservaError("Error al procesar la reserva.") from e
+
+        else:
+            registrar_log("Reserva procesada correctamente.")
+            return costo
+
+        finally:
+            registrar_log("Fin del procesamiento de la reserva.")
 
     def __str__(self):
         return (
